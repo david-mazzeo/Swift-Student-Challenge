@@ -1,15 +1,21 @@
 import UIKit
 import PlaygroundSupport
 
-class MyViewController : UIViewController {
+class MyViewController: UIViewController {
+    
     override func loadView() {
         let view = UIView()
         view.backgroundColor = .black
         
         let welcomeLabel = UILabel()
-        welcomeLabel.text = "Welcome to The Gravity Box!"
+        welcomeLabel.text = """
+        Welcome to
+        The Gravity Box!
+        """
+        welcomeLabel.numberOfLines = 2
         welcomeLabel.font = UIFont.boldSystemFont(ofSize: 30)
-        
+        welcomeLabel.textColor = .white
+        welcomeLabel.textAlignment = .center
 
         let button = UIButton()
         button.configuration = .filled()
@@ -23,17 +29,27 @@ class MyViewController : UIViewController {
 //        button.addTarget(self, action: #selector(buttonDidTap), for: .touchDown)
         
         view.addSubview(button)
+        view.addSubview(welcomeLabel)
         
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        button.centerXAnchor.constraint (equalTo: view.centerXAnchor).isActive = true
+        welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let widthContraints =  NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 140)
-        let heightContraints = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 45)
-        NSLayoutConstraint.activate([heightContraints,widthContraints])
+        button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 10).isActive = true
+        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        welcomeLabel.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -10).isActive = true
+        
+        welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        let widthContraintButton = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 140)
+        let heightContraintButton = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 45)
+        
+        let heightContraintLabel = NSLayoutConstraint(item: welcomeLabel, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 80)
+        
+        NSLayoutConstraint.activate([widthContraintButton, heightContraintButton, heightContraintLabel])
         
         self.view = view
     }
+    
 }
 
 PlaygroundPage.current.liveView = MyViewController()
