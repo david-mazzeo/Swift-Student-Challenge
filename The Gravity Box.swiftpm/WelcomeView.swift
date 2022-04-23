@@ -1,7 +1,6 @@
 import UIKit
-import PlaygroundSupport
 
-class MyViewController: UIViewController {
+class WelcomeController: UIViewController {
     
     let button = UIButton()
     
@@ -9,15 +8,9 @@ class MyViewController: UIViewController {
         let view = UIView()
         view.backgroundColor = .black
         
-        let welcomeLabel = UILabel()
-        welcomeLabel.text = """
-        Welcome to
-        The Gravity Box.
-        """
-        welcomeLabel.numberOfLines = 2
-        welcomeLabel.font = UIFont.systemFont(ofSize: 35, weight: UIFont.Weight.heavy)
-        welcomeLabel.textColor = .white
-        welcomeLabel.textAlignment = .center
+        let welcomeImage = UIImageView()
+        welcomeImage.image = UIImage(named: "Neon Welcome.heic")
+        welcomeImage.contentMode = .scaleAspectFit
 
         button.configuration = .filled()
         button.configuration?.cornerStyle = .capsule
@@ -31,25 +24,26 @@ class MyViewController: UIViewController {
         button.addTarget(self, action: #selector(buttonPressed), for: .touchDown)
         
         view.addSubview(button)
-        view.addSubview(welcomeLabel)
+        view.addSubview(welcomeImage)
         
         button.translatesAutoresizingMaskIntoConstraints = false
-        welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
+        welcomeImage.translatesAutoresizingMaskIntoConstraints = false
         
-        button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 10).isActive = true
+        button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 20).isActive = true
         button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        welcomeLabel.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -10).isActive = true
         
-        welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
+        welcomeImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        welcomeImage.bottomAnchor.constraint(equalTo: button.topAnchor, constant: 0).isActive = true
+
         let widthConstraintButton = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 140)
         let heightConstraintButton = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 45)
         
-        let heightConstraintLabel = NSLayoutConstraint(item: welcomeLabel, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
+        let heightConstraintImage = NSLayoutConstraint(item: welcomeImage, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 140)
         
-        NSLayoutConstraint.activate([widthConstraintButton, heightConstraintButton, heightConstraintLabel])
+        NSLayoutConstraint.activate([widthConstraintButton, heightConstraintButton, heightConstraintImage])
         
         self.view = view
+        
     }
     
     @objc func buttonPressed() {
@@ -61,14 +55,21 @@ class MyViewController: UIViewController {
         button.layer.shadowPath = UIBezierPath(rect: button.bounds).cgPath
         
         UIButton.animate(withDuration: 0.2, animations: {
-            self.button.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            self.button.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
         }, completion: { finish in
             UIButton.animate(withDuration: 0.2, animations: {
                 self.button.transform = CGAffineTransform.identity
             })
         })
+        
+        DispatchQueue.main.async {
+            let vc = SimulatorController()
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }
+        
     }
     
 }
 
-PlaygroundPage.current.liveView = MyViewController()
+
