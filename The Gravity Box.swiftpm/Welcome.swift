@@ -16,9 +16,9 @@ class WelcomeController: UIViewController {
         button.configuration?.cornerStyle = .capsule
         button.configuration?.baseBackgroundColor = .systemRed
         
-        button.setTitle("Continue", for: .normal)
+        button.setTitle("Play", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.setAttributedTitle(NSAttributedString(string: "Continue", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.bold)]), for: .normal)
+        button.setAttributedTitle(NSAttributedString(string: "Play", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.bold)]), for: .normal)
         
         button.isUserInteractionEnabled = true
         button.addTarget(self, action: #selector(buttonPressed), for: .touchDown)
@@ -32,17 +32,19 @@ class WelcomeController: UIViewController {
         button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 20).isActive = true
         button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
+        let image = UIImage(named: "Neon Welcome.heic")!
+        let ratio = image.size.height / image.size.width
+        print(ratio)
+        
+        welcomeImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         welcomeImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        welcomeImage.bottomAnchor.constraint(equalTo: button.topAnchor, constant: 0).isActive = true
-        welcomeImage.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        welcomeImage.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        welcomeImage.heightAnchor.constraint(equalTo: welcomeImage.widthAnchor, multiplier: ratio).isActive = true
+        welcomeImage.widthAnchor.constraint(lessThanOrEqualToConstant: 500).isActive = true
 
         let widthConstraintButton = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 140)
         let heightConstraintButton = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 45)
         
-        let heightConstraintImage = NSLayoutConstraint(item: welcomeImage, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 140)
-        
-        NSLayoutConstraint.activate([widthConstraintButton, heightConstraintButton, heightConstraintImage])
+        NSLayoutConstraint.activate([widthConstraintButton, heightConstraintButton])
         
         self.view = view
         

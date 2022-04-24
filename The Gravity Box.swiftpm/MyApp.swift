@@ -10,7 +10,6 @@ struct MyApp: App {
 }
 
 struct AppController: UIViewControllerRepresentable {
-    var restrictRotation: UIInterfaceOrientationMask = .portrait
     
     func makeUIViewController(context: Context) -> UIViewController {
         return WelcomeController()
