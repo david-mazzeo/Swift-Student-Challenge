@@ -34,6 +34,8 @@ class WelcomeController: UIViewController {
         
         welcomeImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         welcomeImage.bottomAnchor.constraint(equalTo: button.topAnchor, constant: 0).isActive = true
+        welcomeImage.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        welcomeImage.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
 
         let widthConstraintButton = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 140)
         let heightConstraintButton = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 45)

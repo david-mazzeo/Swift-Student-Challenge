@@ -71,8 +71,6 @@ class SimulatorController: UIViewController {
         if let view = sceneView as SKView? {
             let scene = GameScene(size: view.bounds.size)
             scene.scaleMode = .resizeFill
-            view.showsNodeCount = true
-            view.showsFPS = true
             view.presentScene(scene)
             view.ignoresSiblingOrder = true
         }
@@ -100,10 +98,10 @@ class SimulatorController: UIViewController {
         protonCount.bottomAnchor.constraint(equalTo: boxImage.bottomAnchor, constant: -20).isActive = true
         protonCount.rightAnchor.constraint(equalTo: protonLabel.rightAnchor).isActive = true
         
-        quitButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+        quitButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         quitButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         
-        timeRemaining.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+        timeRemaining.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         timeRemaining.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         
         let widthConstraintBox = NSLayoutConstraint(item: boxImage, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 300)
@@ -151,6 +149,9 @@ class SimulatorController: UIViewController {
                 timeRemaining.image = UIImage(systemName: "\(secondsRemaining).circle.fill")
             } else {
                 Timer.invalidate()
+                UserDefaults.standard.set(Int(neutronCount.text!), forKey: "currentNeutronResult")
+                UserDefaults.standard.set(Int(protonCount.text!), forKey: "currentProtonResult")
+                self.present(Results(), animated: true)
             }
         }
                 
