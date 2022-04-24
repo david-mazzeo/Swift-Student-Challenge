@@ -32,6 +32,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>Particle Binder</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>The Gravity Box</key>
 		<dict>
 			<key>primary</key>

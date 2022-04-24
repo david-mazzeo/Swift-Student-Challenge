@@ -13,6 +13,8 @@ var protonCount = 0
 
 class SimulatorController: UIViewController {
     
+    var endTimerEarly = false
+    
     let neutronCount = UILabel()
     let protonCount = UILabel()
     let timeRemaining = UIImageView()
@@ -119,13 +121,27 @@ class SimulatorController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector:#selector(newNeutronCollected(_:)), name: NSNotification.Name("newNeutronCollected"), object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(newProtonCollected(_:)), name: NSNotification.Name("newProtonCollected"), object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(resultsDismissed(_:)), name: NSNotification.Name("viewDismissed"), object: nil)
         
         startTimer()
         
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("newNeutronCollected"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("newProtonCollected"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("viewDismissed"), object: nil)
+    }
+    
     @objc func quitButtonPressed() {
+        endTimerEarly = true
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func resultsDismissed(_ notification: Notification) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [self] in
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @objc func newNeutronCollected(_ notification: Notification) {
@@ -147,6 +163,11 @@ class SimulatorController: UIViewController {
                 print ("\(secondsRemaining) seconds")
                 secondsRemaining -= 1
                 timeRemaining.image = UIImage(systemName: "\(secondsRemaining).circle.fill")
+                
+                if endTimerEarly == true {
+                    Timer.invalidate()
+                }
+                
             } else {
                 Timer.invalidate()
                 UserDefaults.standard.set(Int(neutronCount.text!), forKey: "currentNeutronResult")
@@ -191,12 +212,7 @@ class GameScene: SKScene {
     
         let neutron = Neutron(imageNamed: "neutron.heic")
         neutron.isUserInteractionEnabled = true
-        
-//        if UIDevice.current.userInterfaceIdiom == .pad {
-//            neutron.size = CGSize(width: 120, height: 120)
-//        } else {
-            neutron.size = CGSize(width: 90, height: 90)
-//        }
+        neutron.size = CGSize(width: 90, height: 90)
     
         neutron.physicsBody = SKPhysicsBody(rectangleOf: neutron.size)
         neutron.physicsBody?.isDynamic = true
@@ -227,11 +243,7 @@ class GameScene: SKScene {
     
         let proton = Proton(imageNamed: "proton.heic")
         proton.isUserInteractionEnabled = true
-//        if UIDevice.current.userInterfaceIdiom == .pad {
-//            proton.size = CGSize(width: 120, height: 120)
-//        } else {
-            proton.size = CGSize(width: 90, height: 90)
-//        }
+        proton.size = CGSize(width: 90, height: 90)
     
         proton.physicsBody = SKPhysicsBody(rectangleOf: proton.size)
         proton.physicsBody?.isDynamic = true

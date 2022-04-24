@@ -9,83 +9,95 @@ import UIKit
 
 class Results: UIViewController {
     
-    func resultsCalculator() -> (String, UIColor, Int, Int) {
+    func resultsCalculator() -> (Int, String, UIColor, Int, Int) {
         
         if UserDefaults.standard.integer(forKey: "currentNeutronResult") >= 146 && UserDefaults.standard.integer(forKey: "currentProtonResult") >= 92 {
             
-            return ("Uranium", UIColor(red: 52/255, green: 199/255, blue: 89/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 146, UserDefaults.standard.integer(forKey: "currentProtonResult") - 92)
+            return (16, "Uranium", UIColor(red: 52/255, green: 199/255, blue: 89/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 146, UserDefaults.standard.integer(forKey: "currentProtonResult") - 92)
             
         } else if UserDefaults.standard.integer(forKey: "currentNeutronResult") >= 138 && UserDefaults.standard.integer(forKey: "currentProtonResult") >= 88 {
             
-            return ("Radium", UIColor(red: 0/255, green: 199/255, blue: 190/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 138, UserDefaults.standard.integer(forKey: "currentProtonResult") - 88)
+            return (15, "Radium", UIColor(red: 0/255, green: 199/255, blue: 190/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 138, UserDefaults.standard.integer(forKey: "currentProtonResult") - 88)
             
         } else if UserDefaults.standard.integer(forKey: "currentNeutronResult") >= 118 && UserDefaults.standard.integer(forKey: "currentProtonResult") >= 79 {
             
-            return ("Gold", UIColor(red: 255/255, green: 204/255, blue: 0/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 118, UserDefaults.standard.integer(forKey: "currentProtonResult") - 79)
+            return (14, "Gold", UIColor(red: 255/255, green: 204/255, blue: 0/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 118, UserDefaults.standard.integer(forKey: "currentProtonResult") - 79)
             
         } else if UserDefaults.standard.integer(forKey: "currentNeutronResult") >= 104 && UserDefaults.standard.integer(forKey: "currentProtonResult") >= 71 {
             
-            return ("Lutetium", UIColor(red: 168/255, green: 210/255, blue: 210/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 104, UserDefaults.standard.integer(forKey: "currentProtonResult") - 71)
+            return (13, "Lutetium", UIColor(red: 168/255, green: 210/255, blue: 210/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 104, UserDefaults.standard.integer(forKey: "currentProtonResult") - 71)
         
         } else if UserDefaults.standard.integer(forKey: "currentNeutronResult") >= 94 && UserDefaults.standard.integer(forKey: "currentProtonResult") >= 65 {
          
-            return ("Terbium", UIColor(red: 210/255, green: 218/255, blue: 177/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 94, UserDefaults.standard.integer(forKey: "currentProtonResult") - 65)
+            return (12, "Terbium", UIColor(red: 210/255, green: 218/255, blue: 177/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 94, UserDefaults.standard.integer(forKey: "currentProtonResult") - 65)
        
         } else if UserDefaults.standard.integer(forKey: "currentNeutronResult") >= 78 && UserDefaults.standard.integer(forKey: "currentProtonResult") >= 55 {
          
-            return ("Caesium", UIColor(red: 175/255, green: 141/255, blue: 75/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 78, UserDefaults.standard.integer(forKey: "currentProtonResult") - 55)
+            return (11, "Caesium", UIColor(red: 175/255, green: 141/255, blue: 75/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 78, UserDefaults.standard.integer(forKey: "currentProtonResult") - 55)
        
         } else if UserDefaults.standard.integer(forKey: "currentNeutronResult") >= 69 && UserDefaults.standard.integer(forKey: "currentProtonResult") >= 50 {
             
-            return ("Tin", UIColor(red: 204/255, green: 195/255, blue: 176/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 69, UserDefaults.standard.integer(forKey: "currentProtonResult") - 50)
+            return (10, "Tin", UIColor(red: 204/255, green: 195/255, blue: 176/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 69, UserDefaults.standard.integer(forKey: "currentProtonResult") - 50)
             
         } else if UserDefaults.standard.integer(forKey: "currentNeutronResult") >= 61 && UserDefaults.standard.integer(forKey: "currentProtonResult") >= 47 {
             
-            return ("Silver", UIColor(red: 174/255, green: 174/255, blue: 178/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 61, UserDefaults.standard.integer(forKey: "currentProtonResult") - 47)
+            return (9, "Silver", UIColor(red: 174/255, green: 174/255, blue: 178/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 61, UserDefaults.standard.integer(forKey: "currentProtonResult") - 47)
             
         } else if UserDefaults.standard.integer(forKey: "currentNeutronResult") >= 50 && UserDefaults.standard.integer(forKey: "currentProtonResult") >= 40 {
             
-            return ("Zirconium", UIColor(red: 65/255, green: 86/255, blue: 139/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 50, UserDefaults.standard.integer(forKey: "currentProtonResult") - 40)
+            return (8, "Zirconium", UIColor(red: 65/255, green: 86/255, blue: 139/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 50, UserDefaults.standard.integer(forKey: "currentProtonResult") - 40)
             
         } else if UserDefaults.standard.integer(forKey: "currentNeutronResult") >= 42 && UserDefaults.standard.integer(forKey: "currentProtonResult") >= 36 {
             
-            return ("Krypton", UIColor(red: 100/255, green: 167/255, blue: 204/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 42, UserDefaults.standard.integer(forKey: "currentProtonResult") - 36)
+            return (7, "Krypton", UIColor(red: 100/255, green: 167/255, blue: 204/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 42, UserDefaults.standard.integer(forKey: "currentProtonResult") - 36)
             
         } else if UserDefaults.standard.integer(forKey: "currentNeutronResult") >= 30 && UserDefaults.standard.integer(forKey: "currentProtonResult") >= 26 {
             
-            return ("Iron", UIColor(red: 123/255, green: 126/255, blue: 131/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 30, UserDefaults.standard.integer(forKey: "currentProtonResult") - 26)
+            return (6, "Iron", UIColor(red: 123/255, green: 126/255, blue: 131/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 30, UserDefaults.standard.integer(forKey: "currentProtonResult") - 26)
             
         } else if UserDefaults.standard.integer(forKey: "currentNeutronResult") >= 21 && UserDefaults.standard.integer(forKey: "currentProtonResult") >= 19 {
             
-            return ("Potassium", UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 21, UserDefaults.standard.integer(forKey: "currentProtonResult") - 19)
+            return (5, "Potassium", UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 21, UserDefaults.standard.integer(forKey: "currentProtonResult") - 19)
             
         } else if UserDefaults.standard.integer(forKey: "currentNeutronResult") >= 14 && UserDefaults.standard.integer(forKey: "currentProtonResult") >= 13 {
             
-            return ("Aluminium", UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 14, UserDefaults.standard.integer(forKey: "currentProtonResult") - 13)
+            return (4, "Aluminium", UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 14, UserDefaults.standard.integer(forKey: "currentProtonResult") - 13)
             
         } else if UserDefaults.standard.integer(forKey: "currentNeutronResult") >= 10 && UserDefaults.standard.integer(forKey: "currentProtonResult") >= 10 {
           
-            return ("Neon", UIColor(red: 255/255, green: 255/255, blue: 0/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 10, UserDefaults.standard.integer(forKey: "currentProtonResult") - 10)
+            return (3, "Neon", UIColor(red: 255/255, green: 255/255, blue: 0/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 10, UserDefaults.standard.integer(forKey: "currentProtonResult") - 10)
         
         } else if UserDefaults.standard.integer(forKey: "currentNeutronResult") >= 6 && UserDefaults.standard.integer(forKey: "currentProtonResult") >= 5 {
        
-            return ("Boron", UIColor(red: 255/255, green: 59/255, blue: 48/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 6, UserDefaults.standard.integer(forKey: "currentProtonResult") - 5)
+            return (2, "Boron", UIColor(red: 255/255, green: 59/255, blue: 48/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 6, UserDefaults.standard.integer(forKey: "currentProtonResult") - 5)
      
         } else if UserDefaults.standard.integer(forKey: "currentNeutronResult") >= 2 && UserDefaults.standard.integer(forKey: "currentProtonResult") >= 2 {
         
-            return ("Helium", UIColor(red: 133/255, green: 133/255, blue: 138/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 2, UserDefaults.standard.integer(forKey: "currentProtonResult") - 2)
+            return (1, "Helium", UIColor(red: 133/255, green: 133/255, blue: 138/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult") - 2, UserDefaults.standard.integer(forKey: "currentProtonResult") - 2)
        
         } else {
        
-            return ("Nothing!", UIColor(red: 162/255, green: 132/255, blue: 94/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult"), UserDefaults.standard.integer(forKey: "currentProtonResult"))
+            return (0, "Nothing!", UIColor(red: 162/255, green: 132/255, blue: 94/255, alpha: 1), UserDefaults.standard.integer(forKey: "currentNeutronResult"), UserDefaults.standard.integer(forKey: "currentProtonResult"))
        
         }
             
     }
     
+    var score = 0
+    var scoreString = ""
+    
+    func decideIfHighScore() {
+        if score >= UserDefaults.standard.integer(forKey: "highScore") {
+            UserDefaults.standard.set(score, forKey: "highScore")
+            UserDefaults.standard.set(scoreString, forKey: "highScoreString")
+            NotificationCenter.default.post(name: NSNotification.Name("highScoreChanged"), object: nil)
+        }
+    }
+    
     let particleBuilderDescription = UILabel()
     let builtParticle = UILabel()
     let remainingParticles = UILabel()
+    let continueButton = UIButton()
     
     override func loadView() {
         let view = UIView()
@@ -131,25 +143,30 @@ class Results: UIViewController {
         
         let results = resultsCalculator()
         
-        builtParticle.text = results.0
-        builtParticle.textColor = results.1
+        score = results.0
+        scoreString = results.1
+        
+        decideIfHighScore()
+        
+        builtParticle.text = results.1
+        builtParticle.textColor = results.2
         builtParticle.font = UIFont.systemFont(ofSize: 40, weight: .heavy)
         builtParticle.alpha = 0.0
         
         var neutronTerm = "neutrons"
         var protonTerm = "protons"
         
-        if results.2 == 1 {
+        if results.3 == 1 {
             neutronTerm = "neutron"
         }
         
-        if results.3 == 1 {
+        if results.4 == 1 {
             protonTerm = "proton"
         }
         
         remainingParticles.text = """
         You would have
-        \(results.2) \(neutronTerm) and \(results.3) \(protonTerm)
+        \(results.3) \(neutronTerm) and \(results.4) \(protonTerm)
         left over.
         """
         remainingParticles.numberOfLines = 3
@@ -158,7 +175,7 @@ class Results: UIViewController {
         remainingParticles.textAlignment = .center
         remainingParticles.alpha = 0.0
         
-        let continueButton = UIButton()
+        
         continueButton.configuration = .filled()
         continueButton.configuration?.cornerStyle = .capsule
         continueButton.configuration?.baseBackgroundColor = .systemGreen
@@ -214,7 +231,7 @@ class Results: UIViewController {
         remainingParticles.topAnchor.constraint(equalTo: builtParticle.bottomAnchor, constant: 10).isActive = true
         remainingParticles.centerXAnchor.constraint(equalTo: builtParticle.centerXAnchor).isActive = true
         
-        continueButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        continueButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -35).isActive = true
         continueButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         let widthConstraintButton = NSLayoutConstraint(item: continueButton, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 170)
@@ -228,22 +245,38 @@ class Results: UIViewController {
         protonLabel.animate(newText: "Protons", characterDelay: 0.1)
         
         self.view = view
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        particleBuilderDescription.fadeIn()
+        builtParticle.fadeIn(duration: 0.75, delay: 1.0, completion: {(finished: Bool) -> Void in})
+        remainingParticles.fadeIn(duration: 0.75, delay: 2.0, completion: {(finished: Bool) -> Void in})
+        
+        var parts = 30
         
         continueButton.layer.shadowOffset = .zero
         continueButton.layer.shadowColor = UIColor.systemGreen.cgColor
         continueButton.layer.shadowRadius = 20
-        continueButton.layer.shadowOpacity = 1
+        continueButton.layer.shadowOpacity = 0
         continueButton.layer.shadowPath = UIBezierPath(rect: continueButton.bounds).cgPath
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        particleBuilderDescription.fadeIn()
-        builtParticle.fadeIn(duration: 0.75, delay: 1.0, completion: {(finished: Bool) -> Void in})
-        remainingParticles.fadeIn(duration: 0.75, delay: 2.0, completion: {(finished: Bool) -> Void in})
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            Timer.scheduledTimer(withTimeInterval: 0.0166, repeats: true) { [self] (Timer) in
+                if parts > 0 {
+                    parts -= 1
+                    continueButton.layer.shadowOpacity = (continueButton.layer.shadowOpacity + 0.0333)
+                } else {
+                    Timer.invalidate()
+                }
+            }
+        }
+        
     }
     
     @objc func buttonPressed() {
-        
+        NotificationCenter.default.post(name: NSNotification.Name("viewDismissed"), object: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
