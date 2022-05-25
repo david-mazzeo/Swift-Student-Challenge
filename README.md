@@ -1,4 +1,4 @@
-# Swift-Student-Challenge
+# The Particle Binder
 'The Particle Binder' - Winning WWDC22 Swift Student Challenge submission!
 
 Welcome to The Particle Binder, the particle accelerator developed to run inside your device!
@@ -9,6 +9,8 @@ Your accelerator will take your extracted particles to create up to 16 different
         
 Have fun!
 
+------
+Feel free to download it and give it a go!
 ------
 
 This submission was picked by Apple as one of the Student Challenge winners!
