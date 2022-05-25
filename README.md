@@ -10,7 +10,6 @@ Your accelerator will take your extracted particles to create up to 16 different
 Have fun!
 
 ------
-Feel free to download it and give it a go!
-------
 
 This submission was picked by Apple as one of the Student Challenge winners!
+Feel free to download the Playground and give it a go!
