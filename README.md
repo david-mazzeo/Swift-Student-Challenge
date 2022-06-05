@@ -12,4 +12,8 @@ Have fun!
 ------
 
 This submission was picked by Apple as one of the Student Challenge winners!
-Feel free to download the Playground and give it a go!
+Feel free to download the Playground and give it a go! 
+
+------
+
+The Particle Binder is also now available on the App Store with new features not in the Playground! Download it for free here: https://apps.apple.com/us/app/the-particle-binder/id1627109667
